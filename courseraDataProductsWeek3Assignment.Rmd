@@ -1,0 +1,27 @@
+---
+title: "Coursera Data Products Week 3"
+date: "June 27, 2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Background
+The goal of this assignment is to create a web page presentation using R Markdown that features a plot created with Plotly.
+
+### Data
+We will be looking at the `trees` data set, which provides measurements of the `Girth`, `Height` and `Volume` of timber in 31 felled black cherry trees. Note that girth is the diameter of the tree (in inches) measured at 4 ft 6 in above the ground.
+
+## Plot
+```{r, message=FALSE, echo=FALSE}
+library(plotly)
+library(ggplot2)
+g = ggplot(trees, aes(x=Girth, y=Height))
+g = g + geom_point(aes(color=Volume)) + 
+        ggtitle("Relationship between girth, height, and volume in trees")
+ggplotly(g)
+```
+
+
